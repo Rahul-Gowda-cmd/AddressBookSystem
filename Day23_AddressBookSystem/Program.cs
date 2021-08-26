@@ -7,6 +7,7 @@ namespace Day23_AddressBookSystem
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to the Address Book Program");
+            AddressBookDetails abd = new AddressBookDetails();
             while (true)
             {
                 Console.WriteLine("*********************************************************");
@@ -15,22 +16,23 @@ namespace Day23_AddressBookSystem
                 switch (Convert.ToInt32(Console.ReadLine()))
                 {
                     case 1:
-                        AddressBookDetails.AddMember();
+                        abd.AddMember();
                         break;
                     case 2:
-                        AddressBookDetails.ViewContacts();
+                        abd.ViewContacts();
                         break;
                     case 3:
-                        AddressBookDetails.EditDetails();
+                        abd.EditDetails();
                         break;
                     case 4:
-                        AddressBookDetails.DeleteDetails();
+                        abd.DeleteDetails();
                         break;
                     case 5:
-                        // to exit from main method 
+                        // to exit from main method
                         Console.WriteLine("Exited");
                         return;
                 }
+
             }
         }
     }

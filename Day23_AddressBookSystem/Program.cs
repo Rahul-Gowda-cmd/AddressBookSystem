@@ -10,7 +10,7 @@ namespace Day23_AddressBookSystem
             while (true)
             {
                 Console.WriteLine("*********************************************************");
-                Console.WriteLine("1. Add member to Contact list \n2.View Members in Contact List\n3.Exit");
+                Console.WriteLine("1. Add member to Contact list \n2.View Members in Contact List\n3.Edit members Contacts lists\n4.Exit");
                 Console.WriteLine("Enter an option:");
                 switch (Convert.ToInt32(Console.ReadLine()))
                 {
@@ -21,7 +21,11 @@ namespace Day23_AddressBookSystem
                         AddressBookDetails.ViewContacts();
                         break;
                     case 3:
+                        AddressBookDetails.EditDetails();
+                        break;
+                    case 4:
                         // to exit from main method 
+                        Console.WriteLine("Exited");
                         return;
                 }
             }

@@ -11,7 +11,7 @@ namespace Day23_AddressBookSystem
             while (true)
             {
                 Console.WriteLine("*********************************************************");
-                Console.WriteLine("1. Add member to Contact list \n2.View Members in Contact List\n3.Edit members Contacts lists\n4.Delete members Contacts list\n5.Search Details\n6.Count\n7.SortList\n8.Exit");
+                Console.WriteLine("1. Add member to Contact list \n2.View Members in Contact List\n3.Edit members Contacts lists\n4.Delete members Contacts list\n5.Search Details\n6.Count\n7.SortEntries\n8.Exit");
                 Console.WriteLine("Enter an option:");
                 switch (Convert.ToInt32(Console.ReadLine()))
                 {
@@ -34,7 +34,7 @@ namespace Day23_AddressBookSystem
                         abd.CountByStateOrCity();
                         break;
                     case 7:
-                        abd.SortList();
+                        abd.SortEntries();
                         break;
                     case 8:
                         // to exit from main method

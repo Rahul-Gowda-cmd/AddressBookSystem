@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Day23_AddressBookSystem
@@ -14,6 +15,8 @@ namespace Day23_AddressBookSystem
         private List<Person> searchContacts = new List<Person>();
         //list for view contacts
         private List<Person> viewContacts = new List<Person>();
+        //list for sorting elememts
+        List<Person> SortedList = new List<Person>();
         //address book dictioanry to store values
         private static Dictionary<string, List<Person>> addressBookDictionary = new Dictionary<string, List<Person>>();
 
@@ -548,6 +551,29 @@ namespace Day23_AddressBookSystem
             else
             {
                 Console.WriteLine("Adress book is empty");
+            }
+
+        }
+        public void SortList()
+        {
+            if (addressBookDictionary.Count > 0)
+            {
+
+                //printing the values in address book
+                foreach (KeyValuePair<string, List<Person>> dict in addressBookDictionary)
+                {
+                    //sorting list based on first name
+                    SortedList = dict.Value.OrderBy(x => x.firstName).ToList();
+                    Console.WriteLine($"**********AFTER SORTING {dict.Key}**********");
+                    foreach (var addressBook in SortedList)
+                    {
+                        PrintValues(addressBook);
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine("Address Book is Empty");
             }
 
         }

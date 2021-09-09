@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Text;
 
@@ -48,6 +49,37 @@ namespace AddressBook_DataBase
                     connection.Close();
                 }
                 return Count;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+        public bool UpdateContact(AddressBookModel model)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    SqlCommand command = new SqlCommand("SpUpdateContact", connection);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@first_name", model.firstname);
+                    command.Parameters.AddWithValue("@last_name", model.lastname);
+                    command.Parameters.AddWithValue("@phone_no", model.phone);
+                    command.Parameters.AddWithValue("@email1", model.email);
+                    command.Parameters.AddWithValue("@zip1", model.zip);
+
+
+                    connection.Open();
+                    var result = command.ExecuteNonQuery();
+                    Console.WriteLine("Contact Updated Successfully !");
+                    connection.Close();
+                    if (result == 0)
+                    {
+                        return false;
+                    }
+                    return true;
+                }
             }
             catch (Exception e)
             {

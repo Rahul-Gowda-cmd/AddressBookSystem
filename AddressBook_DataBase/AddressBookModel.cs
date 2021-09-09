@@ -17,5 +17,6 @@ namespace AddressBook_DataBase
         public string city { get; set; }
         public int zip { get; set; }
         public string state { get; set; }
+        public DateTime date_added { get; set; }
     }
 }
